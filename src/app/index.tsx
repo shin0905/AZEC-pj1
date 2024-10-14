@@ -12,9 +12,9 @@ const Index = () => {
             </View>
 
             <View>
-                <View>
-                    <Text>未完了のTODO</Text>
-                    <Text>15Oct2024 10:23</Text>
+                <View style={styles.todoListItem}>
+                    <Text style={styles.todoListItemTitle}>未完了のTODO</Text>
+                    <Text style={styles.todoListItemDate}>15Oct2024 10:23</Text>
                 </View>
             </View>
             <View>
@@ -67,6 +67,26 @@ const styles = StyleSheet.create({
         lineHeight: 32,
         fontWeight: 'bold',
         color: '#ffffff'
+    },
+    todoListItem: {
+        backgroundColor: '#ffffff',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingVertical: 16,
+        paddingHorizontal: 19,
+        alignItems: 'center',
+        borderBottomWidth: 1,
+        borderBottomColor: 'rgba(0, 0, 0, 0.15)'
+
+    },
+    todoListItemTitle: {
+        fontSize: 16,
+        lineHeight: 24
+    },
+    todoListItemDate: {
+        fontSize: 12,
+        lineHeight: 18,
+        color: 'brack'
     }
 
 })
