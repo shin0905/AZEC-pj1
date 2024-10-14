@@ -3,23 +3,23 @@ import { StyleSheet, Text, View } from 'react-native';
 const Index = () => {
     return (
 
-        <View style={styles.container}>
-            <View>
-                <View>
-                    <Text>TODO app</Text>
-                    <Text>LogOut</Text>
+        <View>
+            <View style={styles.header}>
+                <View style={styles.headerInner}>
+                    <Text style={styles.headerTitle}>TODO app</Text>
+                    <Text style={styles.headerRight}>LogOut</Text>
                 </View>
             </View>
 
             <View>
                 <View>
-                    <Text style={styles.text}>未完了のTODO</Text>
+                    <Text>未完了のTODO</Text>
                     <Text>15Oct2024 10:23</Text>
                 </View>
             </View>
             <View>
                 <View>
-                    <Text>Delete</Text>
+                    <Text>X</Text>
                 </View>
             </View>
         
@@ -31,11 +31,11 @@ const Index = () => {
             </View>
             <View>
                 <View>
-                    <Text>Delete</Text>
+                    <Text>X</Text>
                 </View>
             </View>
             <View>
-                    <Text>X</Text>
+                    <Text>+</Text>
             </View>
         </View>
         
@@ -46,16 +46,29 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#ffffff',
-        alignItems: 'center',
-        justifyContent: 'center'
     },
-    text: {
-        color: '#ffffff',
-        backgroundColor: 'blue',
-        fontSize: 20,
+    header: {
+        backgroundColor: '#79a8a9',
+        height:104,
+        justifyContent: 'flex-end'
+    },
+    headerInner: {
+        alignItems: 'center',
+    },
+    headerRight: {
+        position: 'absolute',
+        right: 16,
+        bottom: 16,
+        color: 'rgba(255, 255, 255, 0.8)'
+    },
+    headerTitle: {
+        fontSize: 24,
+        marginBottom: 8,
+        lineHeight: 32,
         fontWeight: 'bold',
-        padding: 16
+        color: '#ffffff'
     }
+
 })
 
 
