@@ -1,17 +1,22 @@
 import { StyleSheet, Text, View } from 'react-native'
 
+import Header from '../../components/Header'
+import TodoListItem from '../../components/TodoListItem'
+import CircleButton from '../../components/CircleButton'
+
 const Index = () => {
     return (
 
         <View style={styles.container}>
-            <View style={styles.header}>
+            {/* <View style={styles.header}>
                 <View style={styles.headerInner}>
                     <Text style={styles.headerTitle}>TODO app</Text>
                     <Text style={styles.headerRight}>LogOut</Text>
                 </View>
-            </View>
+            </View> */}
+            <Header />
 
-            <View>
+            {/* <View>
                 <View style={styles.todoListItem}>
                     <View >
                         <Text style={styles.todoListItemTitle}>未完了のTODO-1</Text>
@@ -21,9 +26,12 @@ const Index = () => {
                         <Text>X</Text>
                     </View>
                 </View>
-            </View>
+            </View> */}
+            <TodoListItem />
+
+            
    
-            <View>
+            {/* <View>
                 <View style={styles.todoListItem}>
                     <View >
                         <Text style={styles.todoListItemTitle}>未完了のTODO-2</Text>
@@ -33,10 +41,11 @@ const Index = () => {
                         <Text>X</Text>
                     </View>
                 </View>
-            </View>
+            </View> */}
+            <TodoListItem />
    
             
-                <View style={styles.todoListItem}>
+                {/* <View style={styles.todoListItem}>
                     <View >
                         <Text style={styles.todoListItemTitle}>未完了のTODO-3</Text>
                         <Text style={styles.todoListItemDate}>15Oct2024 10:23</Text>
@@ -44,12 +53,16 @@ const Index = () => {
                     <View>
                         <Text>X</Text>
                     </View>
-                </View>
+                </View> */}
+            <TodoListItem />
            
         
-            <View style = {styles.circleButton}>
+            {/* <View style = {styles.circleButton}>
                 <Text style = {styles.circleButtonLabel}>+</Text>
-            </View>
+            </View> */}
+            {/* 1st <CircleButton /> */}
+            <CircleButton>@</CircleButton>
+    
                     
         </View>
 
