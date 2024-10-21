@@ -12,7 +12,7 @@ const App = () : JSX.Element => {
       {/* <Hello_0 /> */}
       {/* <Hello_1>World</Hello_1> */}
       {/*<Hello>World</Hello> */}
-      <Hello bang={false}>World</Hello>
+      <Hello bang={true}>World</Hello>
 
       <Text >
          Open up App.tsx to start working on your app!!!
