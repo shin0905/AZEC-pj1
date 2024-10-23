@@ -1,18 +1,20 @@
 import { View, Text, TextInput, StyleSheet, Alert } from 'react-native'
 
 import Button from '../../components/Button'
+import Header from '../../components/Header'
 
 const SignUp = (): JSX.Element => {
     return (
 
         <View style={styles.container}>
 
-             <View style={styles.header}>
+             {/* <View style={styles.header}>
                 <View style={styles.headerInner}>
                     <Text style={styles.headerTitle}>TODO app</Text>
                     <Text style={styles.headerRight}>LogOut</Text>
                 </View>
-             </View>
+             </View> */}
+             <Header />
 
             <View style={styles.inner}>
                 <Text style={styles.titles}>Sign Up</Text>
@@ -21,7 +23,7 @@ const SignUp = (): JSX.Element => {
                 {/* <View style={styles.button}>
                     <Text style={styles.buttonLabel}>Submit</Text>
                 </View> */}
-                {/* 1st <Button label='SignUp' /> */}
+                {/* <Button label='SignUp' /> */}
                 <Button label='SignUp' onPress={ () => { Alert.alert ('Pressed!') }}/>
                 <View style={styles.footer}>
                     <Text style={styles.footerText}>Already registered?</Text>

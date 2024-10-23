@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, StyleSheet,  Alert } from 'react-native'
+import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 
 interface Props {
     label: string
@@ -10,8 +10,8 @@ const Button = (props: Props): JSX.Element => {
     // const { label } = props
     return(
         <TouchableOpacity onPress={onPress} style={styles.button}>
-        {/* <TouchableOpacity onPress={ () => {Alert.alert('Pressed!') }} style={styles.button}> */}
-         <Text style={styles.buttonLabel}>{label}</Text>
+         {/* <TouchableOpacity onPress={ () => {Alert.alert('Pressed!') }} style={styles.button}> */}
+        <Text style={styles.buttonLabel}>{label}</Text>
         </TouchableOpacity>
     )
 }
