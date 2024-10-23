@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
+import { Feather } from '@expo/vector-icons'
 
 import Header from '../../components/Header'
 import TodoListItem from '../../components/TodoListItem'
@@ -61,8 +62,9 @@ const Index = () => {
                 <Text style = {styles.circleButtonLabel}>+</Text>
             </View> */}
             {/* 1st <CircleButton /> */}
-            <CircleButton>@</CircleButton>
-    
+            <CircleButton >
+                <Feather name='plus' size={40} color="#ffffff" />
+            </CircleButton>
                     
         </View>
 

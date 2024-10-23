@@ -1,4 +1,5 @@
-import { View, Text, TextInput, StyleSheet, Alert } from 'react-native'
+import { View, Text, TextInput, StyleSheet, Alert ,TouchableOpacity} from 'react-native'
+import { Link } from 'expo-router'
 
 import Button from '../../components/Button'
 import Header from '../../components/Header'
@@ -8,26 +9,19 @@ const SignUp = (): JSX.Element => {
 
         <View style={styles.container}>
 
-             {/* <View style={styles.header}>
-                <View style={styles.headerInner}>
-                    <Text style={styles.headerTitle}>TODO app</Text>
-                    <Text style={styles.headerRight}>LogOut</Text>
-                </View>
-             </View> */}
-             <Header />
-
+            <Header />
             <View style={styles.inner}>
                 <Text style={styles.titles}>Sign Up</Text>
                 <TextInput style={styles.input} value = 'Email' />
                 <TextInput style={styles.input} value = 'Password' />
-                {/* <View style={styles.button}>
-                    <Text style={styles.buttonLabel}>Submit</Text>
-                </View> */}
-                {/* <Button label='SignUp' /> */}
                 <Button label='SignUp' onPress={ () => { Alert.alert ('Pressed!') }}/>
                 <View style={styles.footer}>
                     <Text style={styles.footerText}>Already registered?</Text>
-                    <Text style={styles.footerLink}>Log In</Text>
+                    <Link href='/auth/log_in' asChild>
+                        <TouchableOpacity>
+                            <Text style={styles.footerLink}>Log In</Text>
+                        </TouchableOpacity>
+                    </Link>
                 </View>
 
             </View>
@@ -38,9 +32,9 @@ const SignUp = (): JSX.Element => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F0F4F8'
-        //justifyContent: 'center',
-        //alignItems: 'center'
+        // backgroundColor: '#F0F4F8'
+        backgroundColor: 'pink'
+
     },
     header: {
         backgroundColor: '#79a8a9',

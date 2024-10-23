@@ -1,27 +1,28 @@
-import { View, Text, TextInput, StyleSheet } from 'react-native'
+import { View, Text, TextInput, StyleSheet,Alert,TouchableOpacity} from 'react-native'
+import { Link} from 'expo-router'
+
+import Button from '../../components/Button'
+import Header from '../../components/Header'
 
 const LogIn = (): JSX.Element => {
     return (
 
         <View style={styles.container}>
 
-             <View style={styles.header}>
-                <View style={styles.headerInner}>
-                    <Text style={styles.headerTitle}>TODO app</Text>
-                    <Text style={styles.headerRight}>LogOut</Text>
-                </View>
-             </View>
-
+            <Header />
             <View style={styles.inner}>
                 <Text style={styles.titles}>Log In</Text>
                 <TextInput style={styles.input} value = 'Email' />
                 <TextInput style={styles.input} value = 'Password' />
-                <View style={styles.button}>
-                    <Text style={styles.buttonLabel}>Submit</Text>
-                </View>
+                <Button label='SignUp' onPress={ () => { Alert.alert ('Pressed!') }}/>
                 <View style={styles.footer}>
                     <Text style={styles.footerText}>Not registerd?</Text>
-                    <Text style={styles.footerLink}>Sign up here</Text>
+                    {/* <Link href='/auth/sign_up' >Sign up here!!!</Link>  */}
+                    <Link href='/auth/sign_up' asChild>
+                        <TouchableOpacity>
+                            <Text style={styles.footerLink}>Sign up here</Text>
+                        </TouchableOpacity>
+                    </Link>
                 </View>
 
             </View>
@@ -33,32 +34,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#F0F4F8',
-        //justifyContent: 'center',
-        //alignItems: 'center'
     },
-    header: {
-        backgroundColor: '#79a8a9',
-        //backgroundColor: 'pink',
-        height:104,
-        justifyContent: 'flex-end'
-    },
-    headerInner: {
-        alignItems: 'center',
-    },
-    headerRight: {
-        position: 'absolute',
-        right: 16,
-        bottom: 16,
-        color: 'rgba(255, 255, 255, 0.8)'
-    },
-    headerTitle: {
-        fontSize: 24,
-        marginBottom: 8,
-        lineHeight: 32,
-        fontWeight: 'bold',
-        color: '#ffffff'
-    },
-
+   
     inner: {
         paddingHorizontal: 24,
         paddingVertical: 27
@@ -84,10 +61,6 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#467FD3',
         borderRadius: 4,
-        // height: 48,
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        // width: '70%',
         alignSelf: 'flex-start',
         marginBottom: 24
     },

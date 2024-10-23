@@ -1,4 +1,6 @@
-import {View, Text, StyleSheet} from 'react-native'
+import {Text, StyleSheet, TouchableOpacity} from 'react-native'
+
+
 interface Props {
     children: string
 }
@@ -7,9 +9,9 @@ const CircleButton = (props:Props):JSX.Element => {
     const {children} = props
 
     return (
-        <View style = {styles.circleButton}>
+        <TouchableOpacity style = {styles.circleButton}>
             <Text style = {styles.circleButtonLabel}>{children}</Text>
-        </View>
+        </TouchableOpacity>
     )  
 
 }

@@ -10,8 +10,7 @@ const Button = (props: Props): JSX.Element => {
     // const { label } = props
     return(
         <TouchableOpacity onPress={onPress} style={styles.button}>
-         {/* <TouchableOpacity onPress={ () => {Alert.alert('Pressed!') }} style={styles.button}> */}
-        <Text style={styles.buttonLabel}>{label}</Text>
+            <Text style={styles.buttonLabel}>{label}</Text>
         </TouchableOpacity>
     )
 }
