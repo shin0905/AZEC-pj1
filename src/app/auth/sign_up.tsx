@@ -1,8 +1,13 @@
 import { View, Text, TextInput, StyleSheet, Alert ,TouchableOpacity} from 'react-native'
-import { Link } from 'expo-router'
+import { Link, router } from 'expo-router'
 
 import Button from '../../components/Button'
 import Header from '../../components/Header'
+
+const handlePress = () : void => {
+    // Member registration action
+    router.push('/todo/list')
+}
 
 const SignUp = (): JSX.Element => {
     return (
@@ -14,7 +19,8 @@ const SignUp = (): JSX.Element => {
                 <Text style={styles.titles}>Sign Up</Text>
                 <TextInput style={styles.input} value = 'Email' />
                 <TextInput style={styles.input} value = 'Password' />
-                <Button label='SignUp' onPress={ () => { Alert.alert ('Pressed!') }}/>
+                {/* <Button label='SignUp' onPress={ () => { Alert.alert ('Pressed!') }}/> */}
+                <Button label='SignUp' onPress={handlePress} />
                 <View style={styles.footer}>
                     <Text style={styles.footerText}>Already registered?</Text>
                     <Link href='/auth/log_in' asChild>

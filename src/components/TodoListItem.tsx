@@ -1,19 +1,23 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet,TouchableOpacity} from 'react-native'
+import {Link} from 'expo-router'
 
 const TodoListItem = () :JSX.Element=> {
 
     return (
-        <View>
-            <View style={styles.todoListItem}>
+        <Link href='/todo/detail' asChild>
+       
+            <TouchableOpacity style={styles.todoListItem}>
                 <View >
                     <Text style={styles.todoListItemTitle}>未完了のTODO</Text>
                     <Text style={styles.todoListItemDate}>15Oct2024 10:23</Text>
                 </View>
-                <View>
+                <TouchableOpacity>
                     <Text>X</Text>
-                </View>
-            </View>
-        </View>
+                </TouchableOpacity>
+            </TouchableOpacity>
+        </Link>
+        
+        
 
     )
 }

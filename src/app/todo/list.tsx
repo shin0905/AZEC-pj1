@@ -9,59 +9,12 @@ const Index = () => {
     return (
 
         <View style={styles.container}>
-            {/* <View style={styles.header}>
-                <View style={styles.headerInner}>
-                    <Text style={styles.headerTitle}>TODO app</Text>
-                    <Text style={styles.headerRight}>LogOut</Text>
-                </View>
-            </View> */}
+       
             <Header />
-
-            {/* <View>
-                <View style={styles.todoListItem}>
-                    <View >
-                        <Text style={styles.todoListItemTitle}>未完了のTODO-1</Text>
-                        <Text style={styles.todoListItemDate}>15Oct2024 10:23</Text>
-                    </View>
-                    <View>
-                        <Text>X</Text>
-                    </View>
-                </View>
-            </View> */}
             <TodoListItem />
-
+            <TodoListItem />
+            <TodoListItem />
             
-   
-            {/* <View>
-                <View style={styles.todoListItem}>
-                    <View >
-                        <Text style={styles.todoListItemTitle}>未完了のTODO-2</Text>
-                        <Text style={styles.todoListItemDate}>15Oct2024 10:23</Text>
-                    </View>
-                    <View>
-                        <Text>X</Text>
-                    </View>
-                </View>
-            </View> */}
-            <TodoListItem />
-   
-            
-                {/* <View style={styles.todoListItem}>
-                    <View >
-                        <Text style={styles.todoListItemTitle}>未完了のTODO-3</Text>
-                        <Text style={styles.todoListItemDate}>15Oct2024 10:23</Text>
-                    </View>
-                    <View>
-                        <Text>X</Text>
-                    </View>
-                </View> */}
-            <TodoListItem />
-           
-        
-            {/* <View style = {styles.circleButton}>
-                <Text style = {styles.circleButtonLabel}>+</Text>
-            </View> */}
-            {/* 1st <CircleButton /> */}
             <CircleButton >
                 <Feather name='plus' size={40} color="#ffffff" />
             </CircleButton>
@@ -77,28 +30,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff'
         // backgroundColor: 'pink'
     },
-    header: {
-        backgroundColor: '#79a8a9',
-        //backgroundColor: 'pink',
-        height:104,
-        justifyContent: 'flex-end'
-    },
-    headerInner: {
-        alignItems: 'center',
-    },
-    headerRight: {
-        position: 'absolute',
-        right: 16,
-        bottom: 16,
-        color: 'rgba(255, 255, 255, 0.8)'
-    },
-    headerTitle: {
-        fontSize: 24,
-        marginBottom: 8,
-        lineHeight: 32,
-        fontWeight: 'bold',
-        color: '#ffffff'
-    },
+
     todoListItem: {
         backgroundColor: '#ffffff',
         flexDirection: 'row',
