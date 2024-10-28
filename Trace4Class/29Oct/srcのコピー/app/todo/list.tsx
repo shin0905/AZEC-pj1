@@ -1,30 +1,21 @@
 import { StyleSheet, Text, View } from 'react-native'
 import { Feather } from '@expo/vector-icons'
-import { router, useNavigation } from 'expo-router'
 
-// import Header from '../../components/Header'
+import Header from '../../components/Header'
 import TodoListItem from '../../components/TodoListItem'
 import CircleButton from '../../components/CircleButton'
 
-const handlePress = (): void => {
-    router.back()
-}
-
-const Index = (): JSX.Element => {
-    const navigation = useNavigation()
-    navigation.setOptions({
-        headerRight: () => { return <Text>Test</Text>}
-})    
+const Index = () => {
     return (
 
         <View style={styles.container}>
        
-            {/* <Header /> */}
+            <Header />
             <TodoListItem />
             <TodoListItem />
             <TodoListItem />
             
-            <CircleButton onPress={handlePress}>
+            <CircleButton >
                 <Feather name='plus' size={40} color="#ffffff" />
             </CircleButton>
                     

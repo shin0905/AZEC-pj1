@@ -1,23 +1,28 @@
 import { StyleSheet, Text, View } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 import { router } from 'expo-router'
-//import { useRouter } from 'expo-router'
+import { useRouter } from 'expo-router'
 
-// import Header from '../../components/Header'
+import Header from '../../components/Header'
 import CircleButton from '../../components/CircleButton'
 
-const handlePress = (): void => {
-    router.back()
-}
+// const handlePress = (): void => {
+//     router.back()
+// }
 
 const Detail = () :JSX.Element=> {
+    const router = useRouter(); // フックを使ってrouterを取得
+    
+    const handlePress = (): void => {
+        router.back();
+    };
 
 
     return (
 
         <View style={styles.container}>
        
-            {/* <Header /> */}
+            <Header />
             <View style={styles.todoHeader}>
                 <Text style={styles.todoTitle}>Todo List </Text>
                 <Text style={styles.todoDate}>15Oct2024 10:23</Text>
@@ -29,7 +34,7 @@ const Detail = () :JSX.Element=> {
                     Check Magic Keyboard touch button at Apple store
                 </Text>
             </View>    
-            <CircleButton onPress={handlePress} style={{top: 60, bottom: 'auto'}}>
+            <CircleButton onPress={handlePress} style={{top: 160, bottom: 'auto'}}>
                 <Feather name='edit-2' size={40} color="#ffffff" />
             </CircleButton>
                     

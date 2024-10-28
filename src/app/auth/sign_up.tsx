@@ -2,11 +2,12 @@ import { View, Text, TextInput, StyleSheet, Alert ,TouchableOpacity} from 'react
 import { Link, router } from 'expo-router'
 
 import Button from '../../components/Button'
-import Header from '../../components/Header'
+// import Header from '../../components/Header'
 
 const handlePress = () : void => {
     // Member registration action
-    router.push('/todo/list')
+    // router.push('/todo/list')
+    router.replace('/todo/list')
 }
 
 const SignUp = (): JSX.Element => {
@@ -14,7 +15,7 @@ const SignUp = (): JSX.Element => {
 
         <View style={styles.container}>
 
-            <Header />
+            {/* <Header /> */}
             <View style={styles.inner}>
                 <Text style={styles.titles}>Sign Up</Text>
                 <TextInput style={styles.input} value = 'Email' />

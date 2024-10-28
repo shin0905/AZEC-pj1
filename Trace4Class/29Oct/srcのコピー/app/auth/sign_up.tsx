@@ -1,32 +1,31 @@
-import { View, Text, TextInput, StyleSheet,Alert,TouchableOpacity} from 'react-native'
-import { Link, router} from 'expo-router'
+import { View, Text, TextInput, StyleSheet, Alert ,TouchableOpacity} from 'react-native'
+import { Link, router } from 'expo-router'
 
 import Button from '../../components/Button'
-// import Header from '../../components/Header'
+import Header from '../../components/Header'
 
 const handlePress = () : void => {
-    // Log in action
-    // router.push('/todo/list')
-    router.replace('/todo/list')
-
+    // Member registration action
+    router.push('/todo/list')
 }
-const LogIn = (): JSX.Element => {
+
+const SignUp = (): JSX.Element => {
     return (
 
         <View style={styles.container}>
 
-            {/* <Header /> */}
+            <Header />
             <View style={styles.inner}>
-                <Text style={styles.titles}>Log In</Text>
+                <Text style={styles.titles}>Sign Up</Text>
                 <TextInput style={styles.input} value = 'Email' />
                 <TextInput style={styles.input} value = 'Password' />
+                {/* <Button label='SignUp' onPress={ () => { Alert.alert ('Pressed!') }}/> */}
                 <Button label='SignUp' onPress={handlePress} />
                 <View style={styles.footer}>
-                    <Text style={styles.footerText}>Not registerd?</Text>
-                    {/* <Link href='/auth/sign_up' >Sign up here!!!</Link>  */}
-                    <Link href='/auth/sign_up' asChild>
+                    <Text style={styles.footerText}>Already registered?</Text>
+                    <Link href='/auth/log_in' asChild>
                         <TouchableOpacity>
-                            <Text style={styles.footerLink}>Sign up here</Text>
+                            <Text style={styles.footerLink}>Log In</Text>
                         </TouchableOpacity>
                     </Link>
                 </View>
@@ -39,9 +38,33 @@ const LogIn = (): JSX.Element => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F0F4F8',
+        // backgroundColor: '#F0F4F8'
+        backgroundColor: 'pink'
+
     },
-   
+    header: {
+        backgroundColor: '#79a8a9',
+        //backgroundColor: 'pink',
+        height:104,
+        justifyContent: 'flex-end'
+    },
+    headerInner: {
+        alignItems: 'center'
+    },
+    headerRight: {
+        position: 'absolute',
+        right: 16,
+        bottom: 16,
+        color: 'rgba(255, 255, 255, 0.8)'
+    },
+    headerTitle: {
+        fontSize: 24,
+        marginBottom: 8,
+        lineHeight: 32,
+        fontWeight: 'bold',
+        color: '#ffffff'
+    },
+
     inner: {
         paddingHorizontal: 24,
         paddingVertical: 27
@@ -94,4 +117,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default LogIn
+export default SignUp

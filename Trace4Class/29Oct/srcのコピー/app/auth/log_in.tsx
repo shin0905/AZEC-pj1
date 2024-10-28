@@ -2,20 +2,18 @@ import { View, Text, TextInput, StyleSheet,Alert,TouchableOpacity} from 'react-n
 import { Link, router} from 'expo-router'
 
 import Button from '../../components/Button'
-// import Header from '../../components/Header'
+import Header from '../../components/Header'
 
 const handlePress = () : void => {
     // Log in action
-    // router.push('/todo/list')
-    router.replace('/todo/list')
-
+    router.push('/todo/list')
 }
 const LogIn = (): JSX.Element => {
     return (
 
         <View style={styles.container}>
 
-            {/* <Header /> */}
+            <Header />
             <View style={styles.inner}>
                 <Text style={styles.titles}>Log In</Text>
                 <TextInput style={styles.input} value = 'Email' />
