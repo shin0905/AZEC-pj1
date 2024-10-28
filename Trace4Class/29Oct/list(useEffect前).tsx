@@ -1,12 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 import { router, useNavigation } from 'expo-router'
-import { useEffect } from 'react'
 
 // import Header from '../../components/Header'
 import TodoListItem from '../../components/TodoListItem'
 import CircleButton from '../../components/CircleButton'
-import LogOutButton from '../../components/LogOutButton'
 
 const handlePress = (): void => {
     router.back()
@@ -14,14 +12,9 @@ const handlePress = (): void => {
 
 const Index = (): JSX.Element => {
     const navigation = useNavigation()
-    useEffect (()=> {
-        navigation.setOptions({
-            // headerRight: () => { return <Text>Test</Text>}
-            headerRight: () => { return <LogOutButton />}
-        })    
-
-    }, [])
-  
+    navigation.setOptions({
+        headerRight: () => { return <Text>Test</Text>}
+})    
     return (
 
         <View style={styles.container}>
