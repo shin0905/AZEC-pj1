@@ -13,6 +13,7 @@ const handlePress = (): void => {
 }
 
 const Index = (): JSX.Element => {
+ 
     const navigation = useNavigation()
     useEffect (()=> {
         navigation.setOptions({
