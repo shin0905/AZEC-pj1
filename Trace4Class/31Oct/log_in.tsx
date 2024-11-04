@@ -13,7 +13,6 @@ const handlePress = () : void => {
 }
 const LogIn = (): JSX.Element => {
     const [ email, setEmail] = useState('')
-    const [ password, setPassword] = useState('')
     return (
 
         <View style={styles.container}>
@@ -26,22 +25,9 @@ const LogIn = (): JSX.Element => {
                     style={styles.input} 
                     value = {email}
                     onChangeText={(text) => { setEmail(text) }}
-                    autoCapitalize='none'
-                    keyboardType = 'email-address'
-                    placeholder='Email Address'
-                    textContentType='emailAddress'
                 />
 
-                {/* <TextInput style={styles.input} value = 'Password' /> */}
-                <TextInput 
-                    style={styles.input} 
-                    value = {password}
-                    onChangeText={(text) => { setPassword(text) }}
-                    autoCapitalize='none'
-                    secureTextEntry
-                    placeholder='Password'
-                    textContentType='password'
-                />
+                <TextInput style={styles.input} value = 'Password' />
                 <Button label='SignUp' onPress={handlePress} />
                 <View style={styles.footer}>
                     <Text style={styles.footerText}>Not registerd?</Text>
