@@ -1,14 +1,28 @@
 import { View, Text, TextInput, StyleSheet, Alert ,TouchableOpacity} from 'react-native'
 import { Link, router } from 'expo-router'
 import { useState } from 'react'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
+import { auth } from '../../config'
 import Button from '../../components/Button'
 // import Header from '../../components/Header'
 
-const handlePress = () : void => {
+const handlePress = (email: string, password: string) : void => {
     // Member registration action
+    console.log(email,password)
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // const user = userCredential.user
+        console.log(userCredential.user.uid)
+        router.replace('/todo/list')
+    })
+    .catch((error) => {
+       	const { code, message } = error
+        console.log(code, message)
+        Alert.alert('Error', message)
+    })
     // router.push('/todo/list')
-    router.replace('/todo/list')
+    // router.replace('/todo/list')
 }
 
 const SignUp = (): JSX.Element => {
@@ -45,7 +59,8 @@ const SignUp = (): JSX.Element => {
                 />
 
                 {/* <Button label='SignUp' onPress={ () => { Alert.alert ('Pressed!') }}/> */}
-                <Button label='SignUp' onPress={handlePress} />
+                {/* <Button label='SignUp' onPress={handlePress} /> */}
+                <Button label='SignUp' onPress={() => {handlePress(email,password)}} />
                 <View style={styles.footer}>
                     <Text style={styles.footerText}>Already registered?</Text>
                     <Link href='/auth/log_in' asChild>
