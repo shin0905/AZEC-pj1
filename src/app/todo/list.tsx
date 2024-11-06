@@ -9,10 +9,10 @@ import CircleButton from '../../components/CircleButton'
 import LogOutButton from '../../components/LogOutButton'
 
 const handlePress = (): void => {
-    router.push('/auth/log_in')
+    router.push('/todo/create')
 }
 
-const Index = (): JSX.Element => {
+const List = (): JSX.Element => {
  
     const navigation = useNavigation()
     useEffect (()=> {
@@ -93,4 +93,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default Index
+export default List

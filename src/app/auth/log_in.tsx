@@ -1,14 +1,31 @@
 import { View, Text, TextInput, StyleSheet,Alert,TouchableOpacity} from 'react-native'
 import { Link, router} from 'expo-router'
 import { useState } from 'react'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+
+
 
 import Button from '../../components/Button'
+import { auth } from '../../config'
+
 // import Header from '../../components/Header'
 
-const handlePress = () : void => {
-    // Log in action
-    // router.push('/todo/list')
-    router.replace('/todo/list')
+// const handlePress = () : void => {
+const handlePress = (email: string, password: string) : void => {
+// Log in action
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // const user = userCredential.user
+        console.log(userCredential.user.uid)
+        router.replace('/todo/list')
+    }
+)
+    .catch((error) => {
+        const { code, message } = error
+        console.log(code, message)
+        Alert.alert('Error', message)
+    })
+  
 
 }
 const LogIn = (): JSX.Element => {
@@ -42,7 +59,8 @@ const LogIn = (): JSX.Element => {
                     placeholder='Password'
                     textContentType='password'
                 />
-                <Button label='SignUp' onPress={handlePress} />
+                {/* <Button label='SignUp' onPress={handlePress} /> */}
+                <Button label='SignUp' onPress={() => {handlePress(email,password)}} />
                 <View style={styles.footer}>
                     <Text style={styles.footerText}>Not registerd?</Text>
                     {/* <Link href='/auth/sign_up' >Sign up here!!!</Link>  */}
