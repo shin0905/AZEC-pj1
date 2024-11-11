@@ -4,21 +4,18 @@ import {
 import { router } from 'expo-router'
 import { collection, addDoc } from 'firebase/firestore'
 import { db ,auth} from '../../config'
-import { useState } from 'react'
 
 import { Feather } from '@expo/vector-icons'
 import CircleButton from '../../components/CircleButton'
 import KeyboardAvoidingView from '../../components/KeyboardAvoidingView'
 
-const handlePress =  (bodyText: string): void => {
+const handlePress =  (): void => {
     if (auth.currentUser === null) { return }
     const ref = collection(db, 'users/$(auth.currentUser.uid)/todos')
     addDoc(ref, {
         
     // addDoc(collection(db, 'todos'), {
-        // 
-        bodyText: bodyText,
-        updatedAt: new Date()
+        bodyText: 'test'
     })
     .then ((docRef) => {
         console.log('Success', docRef.id)
@@ -44,7 +41,6 @@ const handlePress =  (bodyText: string): void => {
 // addTestDoc()
 
 const Create = (): JSX.Element => {
-    const [bodyText, setBodyText] = useState('')
     return (
         <KeyboardAvoidingView style={styles.container} >
 
@@ -52,12 +48,10 @@ const Create = (): JSX.Element => {
                 <TextInput
                  multiline 
                  style={styles.input} 
-                //  
-                value = {bodyText}
-                onChangeText={(text) => { setBodyText(text) }}
+                 value='' 
                  />
             </View>
-            <CircleButton onPress={() => { handlePress(bodyText)}}>
+            <CircleButton onPress={handlePress}>
                 <Feather name='plus' size={40} color="#ffffff" />
             </CircleButton>
  
