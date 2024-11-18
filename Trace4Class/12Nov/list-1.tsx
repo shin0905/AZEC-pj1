@@ -1,64 +1,37 @@
-import { StyleSheet, FlatList, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 import { router, useNavigation } from 'expo-router'
-import { useEffect , useState } from 'react'
-import { collection, onSnapshot, query, orderBy } from 'firebase/firestore'
+import { useEffect } from 'react'
 
-
+// import Header from '../../components/Header'
 import TodoListItem from '../../components/TodoListItem'
 import CircleButton from '../../components/CircleButton'
 import LogOutButton from '../../components/LogOutButton'
-import { db, auth } from '../../config'
-import { type Todo } from '../../../types/todo'
 
 const handlePress = (): void => {
     router.push('/todo/create')
 }
 
 const List = (): JSX.Element => {
-    const [todos, setTodos] = useState<Todo[]>([])
+ 
     const navigation = useNavigation()
     useEffect (()=> {
         navigation.setOptions({
+            // headerRight: () => { return <Text>Test</Text>}
             headerRight: () => { return <LogOutButton />}
         })    
 
     }, [])
-    useEffect (() => {
-        if (auth.currentUser === null) { return }
-        const ref = collection(db, 'users/$(auth.currentUser.uid)/todos')
-        const q = query(ref, orderBy('updatedAt', 'desc'))
-        // const q = query(ref)
-        const unsubscribe = onSnapshot(q, (snapshot) => {
-            const remoteTodos: Todo[] = []
-            snapshot.forEach((doc) => {
-                // console.log('todo', doc.id)
-                // console.log('todo', doc.data())
-                const {bodyText, updatedAt} = doc.data()
-                remoteTodos.push({
-                    id: doc.id,
-                    bodyText: bodyText,
-                    // updatedAt: updatedAt.toDate()
-                    updatedAt: updatedAt
-                })
-                setTodos(remoteTodos)
-            })
-        })
-        return unsubscribe
-    }, [])
-
+  
     return (
 
         <View style={styles.container}>
-            <FlatList
-                data={todos}
-                renderItem={({ item }) => <TodoListItem todo={item} />}  
-        
-            />
-            {/* <View>
-                {todos.map((todo) =>  <TodoListItem todo={todo} /> )}
-             </View>            */}
-  
+       
+            {/* <Header /> */}
+            <TodoListItem />
+            <TodoListItem />
+            <TodoListItem />
+            
             <CircleButton onPress={handlePress}>
                 <Feather name='plus' size={40} color="#ffffff" />
             </CircleButton>

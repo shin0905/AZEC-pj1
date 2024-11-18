@@ -38,8 +38,7 @@ const List = (): JSX.Element => {
                 remoteTodos.push({
                     id: doc.id,
                     bodyText: bodyText,
-                    // updatedAt: updatedAt.toDate()
-                    updatedAt: updatedAt
+                    updatedAt: updatedAt.toDate()
                 })
                 setTodos(remoteTodos)
             })
@@ -55,9 +54,9 @@ const List = (): JSX.Element => {
                 renderItem={({ item }) => <TodoListItem todo={item} />}  
         
             />
-            {/* <View>
-                {todos.map((todo) =>  <TodoListItem todo={todo} /> )}
-             </View>            */}
+            {/* // <View>
+            //     {todos.map((todo) =>  <TodoListItem todo={todo} /> )}
+            // </View>            */}
   
             <CircleButton onPress={handlePress}>
                 <Feather name='plus' size={40} color="#ffffff" />

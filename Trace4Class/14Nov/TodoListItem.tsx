@@ -24,13 +24,16 @@ const TodoListItem = (props: Props) :JSX.Element=> {
     : '日付不明';
 
     return (
-        <Link 
-            href= {{ pathname: '/todo/detail', params: { id: todo.id } }}
-            asChild>
+        <Link href='/todo/detail' asChild>
        
             <TouchableOpacity style={styles.todoListItem}>
                 <View >
-                    <Text numberOfLines={1} style={styles.todoListItemTitle}>{bodyText}</Text>
+                
+                    {/* <Text style={styles.todoListItemTitle}>未完了のTODO</Text>
+                    <Text style={styles.todoListItemDate}>15Oct2024 10:23</Text> */}
+                   
+                    <Text style={styles.todoListItemTitle}>{bodyText}</Text>
+                    {/* <Text style={styles.todoListItemDate}>{todo.updatedAt}</Text> */}
                     <Text style={styles.todoListItemDate}>{dateString}</Text>
                 </View>
                 <TouchableOpacity>
