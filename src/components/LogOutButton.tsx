@@ -10,6 +10,7 @@ const handlePress = () : void => {
     })
     .catch((error) => {
         Alert.alert('ログアウトに失敗しました', error.message)
+
     })
 }
 

@@ -7,20 +7,16 @@ import { useEffect , useState } from 'react'
 import CircleButton from '../../components/CircleButton'
 import { db, auth } from '../../config'
 import { type Todo } from '../../../types/todo'
-// import { ScrollView } from 'react-native-gesture-handler'
-// import { StringLiteralType } from 'typescript'
+import { ScrollView } from 'react-native-gesture-handler'
 
-// const handlePress = (): void => {
-//     router.back()
-// }
-const handlePress = (id: string): void => {
-        router.push ({ pathname: '/todo/edit', params: { id }})
-        console.log('id@toedit', id)}
+const handlePress = (): void => {
+    router.back()
+}
 
 const Detail = () :JSX.Element=> {
 
-    const id  = String(useLocalSearchParams().id )
-    console.log('id@detail', id)
+    const { id } = useLocalSearchParams()
+    console.log('id', id)
     const [todo, setTodo] = useState<Todo | null>(null)
     useEffect (() => {
         if (auth.currentUser === null) { return }
@@ -57,7 +53,7 @@ const Detail = () :JSX.Element=> {
                 </Text>
             </ScrollView> */}
             </View>    
-            <CircleButton onPress= { () => {handlePress(id) }} style={{top: 60, bottom: 'auto'}}>
+            <CircleButton onPress={handlePress} style={{top: 60, bottom: 'auto'}}>
                 <Feather name='edit-2' size={40} color="#ffffff" />
             </CircleButton>
                     
