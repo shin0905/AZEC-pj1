@@ -2,7 +2,7 @@ import {
     View, TextInput, StyleSheet
 } from 'react-native'
 import { router } from 'expo-router'
-import { collection, addDoc } from 'firebase/firestore'
+import { collection, addDoc, Timestamp } from 'firebase/firestore'
 import { db ,auth} from '../../config'
 import { useState } from 'react'
 
@@ -18,7 +18,7 @@ const handlePress =  (bodyText: string): void => {
     // addDoc(collection(db, 'todos'), {
         // 
         bodyText: bodyText,
-        updatedAt: new Date()
+        updatedAt: Timestamp.fromDate(new Date())
     })
     .then ((docRef) => {
         console.log('Success', docRef.id)
@@ -55,6 +55,7 @@ const Create = (): JSX.Element => {
                 //  
                 value = {bodyText}
                 onChangeText={(text) => { setBodyText(text) }}
+                autoFocus
                  />
             </View>
             <CircleButton onPress={() => { handlePress(bodyText)}}>

@@ -1,21 +1,49 @@
-import { View, Text, StyleSheet,TouchableOpacity} from 'react-native'
+import { View, Text, StyleSheet,TouchableOpacity, Alert} from 'react-native'
 import {Link} from 'expo-router'
+import { deleteDoc, doc } from 'firebase/firestore'
+
+import { Feather } from '@expo/vector-icons'
 import { type Todo} from '../../types/todo'
+import { auth, db } from '../config'
 
 interface Props {
     todo: Todo
 }
 
+const handlePress = (id: string): void => {
+    // console.log('id@TodoListItem', id)
+    if (auth.currentUser === null) { 
+        console.log('failed to login')
+        return }
+
+    const ref = doc(db, 'users/$(auth.currentUser.uid)/todos', id)
+    // const ref = doc(db, 'users/OGqyEfPLFSOd1g5koH2qSkntzjT2/todos', id)
+    Alert.alert('Delete', 'Are you sure you want to delete this item?', [
+        {
+            text: 'Cancel',
+            style: 'cancel'
+        },
+        {
+            text: 'OK',
+            style: 'destructive',
+            onPress: () => {
+                deleteDoc(ref)
+                .then(() => {
+                    console.log('Document successfully deleted!')
+                })
+                .catch((error) => {
+                    console.error('Error removing document: ', error)
+                    Alert.alert('Error removing document', error.message) 
+                })
+            }
+        }
+    ])
+}
 const TodoListItem = (props: Props) :JSX.Element=> {
-    const { todo } = props
-    
+    const { todo } = props    
     const { bodyText, updatedAt } = todo
-    
-    // console.log(todo.bodyText)
-    // console.log(todo.udatedAt)
-    if (todo.updatedAt === null) {
-        return <></>
-    }
+
+    if (bodyText === null || updatedAt === null ) { return <></> }
     // const dateString = updatedAt.toDate().toLocaleString('ja-JP')
     // updatedAtがnullまたはundefinedでないか確認し、型がDateまたはTimestamp型か確認
     const dateString =
@@ -33,14 +61,12 @@ const TodoListItem = (props: Props) :JSX.Element=> {
                     <Text numberOfLines={1} style={styles.todoListItemTitle}>{bodyText}</Text>
                     <Text style={styles.todoListItemDate}>{dateString}</Text>
                 </View>
-                <TouchableOpacity>
-                    <Text>X</Text>
+                <TouchableOpacity onPress={ () => { handlePress (todo.id) }}>
+                    {/* <Text>X</Text> */}
+                    <Feather name='delete' size={40} color="#000000" />
                 </TouchableOpacity>
             </TouchableOpacity>
         </Link>
-        
-        
-
     )
 }
 
