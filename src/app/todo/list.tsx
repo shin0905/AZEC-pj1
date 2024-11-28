@@ -41,8 +41,9 @@ const List = (): JSX.Element => {
                     // updatedAt: updatedAt.toDate()
                     updatedAt: updatedAt
                 })
-                setTodos(remoteTodos)
+                // setTodos(remoteTodos)
             })
+            setTodos(remoteTodos)
         })
         return unsubscribe
     }, [])
